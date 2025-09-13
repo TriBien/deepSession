@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeepSession</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Favicon (browser tab icon) -->
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon" />
+
+    <!-- PNG favicon alternatives (better for modern browsers) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="icons/favicon-16x16.png"
+    />
+
+    <!-- Apple Touch Icon (when saved to iOS home screen) -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="icons/apple-touch-icon.png"
+    />
+
+    <!-- Android / PWA Icon -->
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <div id="settings">⚙️</div>
+
+    <div id="progressContainer">
+      <svg id="progressCircle" width="220" height="220">
+        <circle
+          cx="110"
+          cy="110"
+          r="100"
+          stroke="#444"
+          stroke-width="15"
+          fill="none"
+        />
+        <circle
+          id="progressBar"
+          cx="110"
+          cy="110"
+          r="100"
+          stroke="#007bff"
+          stroke-width="15"
+          fill="none"
+          stroke-linecap="round"
+          stroke-dasharray="628"
+          stroke-dashoffset="0"
+        />
+      </svg>
+      <div id="timer">30:00</div>
+      <div id="phase">Deep Work</div>
+    </div>
+
+    <button id="controlBtn">Start</button>
+
+    <div id="settingsModal">
+      <h3>Session Settings</h3>
+      <label
+        >Deep Work: <input type="number" id="workInput" value="30"
+      /></label>
+      min<br />
+      <label
+        >Deep Think: <input type="number" id="thinkInput" value="15"
+      /></label>
+      min<br />
+      <label
+        >Deep Relax: <input type="number" id="relaxInput" value="15"
+      /></label>
+      min<br />
+      <button id="saveSettings">Save</button>
+    </div>
+
+    <audio id="alarmSound">
+      <source
+        src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"
+        type="audio/ogg"
+      />
+    </audio>
+
+    <script src="main.js"></script>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("service-worker.js")
+            .then((reg) => console.log("Service Worker registered:", reg.scope))
+            .catch((err) =>
+              console.error("Service Worker registration failed:", err)
+            );
+        });
+      }
+    </script>
+  </body>
+</html>
