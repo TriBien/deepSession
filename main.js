@@ -59,7 +59,7 @@ function startSession() {
 
 function playAlarm() {
   alarm.play();
-  setTimeout(() => alarm.pause(), 5000);
+  setTimeout(() => alarm.pause(), 8000);
   alarm.currentTime = 0;
 }
 

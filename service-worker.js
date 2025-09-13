@@ -12,6 +12,7 @@ const ASSETS = [
   "/icons/android-chrome-192x192.png",
   "/icons/android-chrome-512x512.png",
   "/site.webmanifest",
+  "/clock.mp3",
 ];
 
 // Install: cache essential files
